@@ -1,0 +1,17 @@
+services:
+  attacker:
+    build: .
+    container_name: attacker
+    networks:
+      - inq-network
+    volumes:
+      - $PWD/code:/code
+  victim:
+    build: ./victim/
+    container_name: victim
+    networks:
+      - inq-network
+
+networks:
+  inq-network:
+    driver: bridge
